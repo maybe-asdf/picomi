@@ -1,6 +1,4 @@
 import os
-
-import os
 import sys
 
 def check_adb_devices():
@@ -31,7 +29,7 @@ if ans == 'yes' :
     print("Alright! lets start")
 else :
     quit()
-
+print("Be sure to disable system optimization in dev options")
 os.system("adb install helper.apk")
 os.system("adb shell monkey -p com.mi.pico -c android.intent.category.LAUNCHER 1")
 ans = input("Do you wish to clean the 'dirt programs? (built in ads, apps hidden from users etc..) y/n : ")
@@ -153,10 +151,22 @@ if ans == 'y' :
     os.system("adb install apps.apk")
     os.system('adb shell pm uninstall --user 0 com.xiaomi.xmsf')
     os.system("adb install fwk.apk")
-    os.system('adb uninstall com.android.deskclock')
     os.system("adb install clock.apk")
-    os.system('adb uninstall com.mi.android.globalFileexplorer')
-    os.system("adb install files.apk")
-        
+#   os.system('adb uninstall com.mi.android.globalFileexplorer')
+#   os.system("adb install files.apk") don't work, if anyone has a solution please lmk (no root)
+    os.system("adb install settings.apk")
+    os.system("adb install uiplugin.apk")
+    ans = input("By the way, Chinese music player is well, in chinese. Do you want me to install it? y/n : ")
+    if ans =='y' :
+        os.system("adb install music.apk")        
+ans = input("Do you wish to install super wallpapers? + managing app y/n : ")
+if ans == 'y' :
+    os.system("adb install superearth.apk")
+    os.system("adb install supermountain.apk")
+    os.system("adb install wallpapers.apk")
+    print("The wallpaper managing app is : Google Wallpapers")
 os.system("adb uninstall com.mi.pico")
+print("Reeboting and exiting, thank you for using picomi!")
+os.system("adb reboot")
+
 
