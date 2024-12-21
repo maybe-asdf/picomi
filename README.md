@@ -1,7 +1,7 @@
 # picomi!
 
 A program that allows you to do various modifications to your xiaomi (including sub-brands) phone! (BETA)
-
+[Discord](https://discord.gg/9c3QCaKUzg)
 # DISCLAIMER!
 ENSURE YOU ARE RUNNING THIS ON A XIAOMI DEVICE
 ENSURE YOU HAVE DISABLED SYSTEM OPTIMIZATION 
