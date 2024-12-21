@@ -3,7 +3,9 @@
 A program that allows you to do various modifications to your xiaomi (including sub-brands) phone! (BETA)
 
 # DISCLAIMER!
-
+ENSURE YOU ARE RUNNING THIS ON A XIAOMI DEVICE
+ENSURE YOU HAVE DISABLED SYSTEM OPTIMIZATION 
+ENSURE YOU ARE ON HYPEROS, NOT MIUI
 WARNING! what you do with your devices and this script is your responsibility, i will not be held accountable if you break your phone, void your warranty etc.. THIS IS YOUR RESPONSIBILITY!
 
 # List of features (not all are implemented)
