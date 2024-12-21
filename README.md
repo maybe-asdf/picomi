@@ -16,5 +16,6 @@ Device info (planned)
 # Test subjects
 
 Redmi note 12 (was optimized manually beforehand but didn't show no errors with the script)
+Huawei mediapad m5 (no china-fy support, partial debloat support, very buggy)
 
 
