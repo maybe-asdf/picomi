@@ -13,7 +13,7 @@ Remove various preinstalled (done)
 Install chinese apps/optimized versions of global (next)
 Device info (planned)
 
-# Test subjects
+# Verified Compatible Devices 
 
 1. Redmi note 12 (was optimized manually beforehand but didn't show no errors with the script)
 2. Redmi note 11 pro 5g (reboot ~1min)
