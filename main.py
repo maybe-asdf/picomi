@@ -1,9 +1,39 @@
 import os
-ans = input("WARNING! what you do with your devices and this script is your responsibility, i will not be held accountable if you break your phone, void your warranty etc.. THIS IS YOUR RESPONSIBILITY! If you agree to these terms, please type EXACTLY LIKE SHOWN : Yes i understand ")
-if ans == 'Yes i understand' :
+
+import os
+import sys
+
+def check_adb_devices():
+    # Run the 'adb devices' command and capture the output
+    result = os.popen("adb devices").read().strip()
+
+    # Parse the output to find connected devices
+    lines = result.split("\n")
+    devices = [line.split("\t")[0] for line in lines[1:] if "\tdevice" in line]
+
+    # Check the number of devices
+    if len(devices) == 1:
+        print(f"Device connected: {devices[0]}")
+        return devices[0]  # Continue with the connected device
+    elif len(devices) == 0:
+        print("Error: No ADB devices connected.", file=sys.stderr)
+    else:
+        print("Error: Multiple ADB devices connected. Please connect only one.", file=sys.stderr)
+    
+    sys.exit(1)  # Exit with an error if no devices or multiple devices are connected
+
+# Run the function
+if __name__ == "__main__":
+    check_adb_devices()
+
+ans = input("WARNING! what you do with your devices and this script is your responsibility, i will not be held accountable if you break your phone, void your warranty etc.. THIS IS YOUR RESPONSIBILITY! If you agree to these terms, please type yes or no. : ")
+if ans == 'yes' :
     print("Alright! lets start")
 else :
     quit()
+
+os.system("adb install helper.apk")
+os.system("adb shell monkey -p com.mi.pico -c android.intent.category.LAUNCHER 1")
 ans = input("Do you wish to clean the 'dirt programs? (built in ads, apps hidden from users etc..) y/n : ")
 if ans == 'y':
     os.system("adb uninstall com.google.android.adservices.api")
@@ -112,4 +142,21 @@ if ans == 'y':
     os.system("adb uninstall com.miui.fm")
     os.system("adb uninstall com.miui.bugreport")
     print("The picomi program has cleared the unneccesary apps")
-print("Bye!")
+ans = input("Do you wish to chinafy your phone? (Optimize in my experience and add useful features) y/n : ")
+if ans == 'y' :
+    os.system('adb shell pm uninstall --user 0 com.miui.home')
+    os.system("adb install home.apk")
+    os.system("adb install miai.apk")
+    os.system('adb shell pm uninstall --user 0 com.android.thememanager')
+    os.system('adb install themes.apk')
+    os.system('adb shell pm uninstall --user 0 com.xiaomi.mipicks')
+    os.system("adb install apps.apk")
+    os.system('adb shell pm uninstall --user 0 com.xiaomi.xmsf')
+    os.system("adb install fwk.apk")
+    os.system('adb uninstall com.android.deskclock')
+    os.system("adb install clock.apk")
+    os.system('adb uninstall com.mi.android.globalFileexplorer')
+    os.system("adb install files.apk")
+        
+os.system("adb uninstall com.mi.pico")
+
