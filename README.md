@@ -13,7 +13,8 @@ WARNING! what you do with your devices and this script is your responsibility, i
 Remove dirt apps (done)
 Remove various preinstalled (done)
 Install chinese apps/optimized versions of global (done)
-Super wallpapers (partially done)
+Super wallpapers (done)
+Reboot (done)
 Device info (next)
 
 # Verified Compatible Devices 
