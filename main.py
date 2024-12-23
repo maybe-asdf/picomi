@@ -31,6 +31,7 @@ def check_adb_devices():
     elif len(devices) == 0:
         print("Error: No ADB devices connected, if you are in fastboot this can be ignored, if not, check logs.", file=sys.stderr)
         log("No phone connected (check wiki or reconnect)")
+        return devices[0]
     else:
         print("Error: Multiple ADB devices connected. Please connect only one.", file=sys.stderr)
         log("Multiple devices connected (adb kill-server might help)")
